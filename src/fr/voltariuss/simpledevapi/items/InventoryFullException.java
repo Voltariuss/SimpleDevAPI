@@ -7,5 +7,4 @@ package fr.voltariuss.simpledevapi.items;
  * @version 1.5.0
  *
  */
-public class InventoryFullException extends Exception {
-}
+public class InventoryFullException extends Exception {}
