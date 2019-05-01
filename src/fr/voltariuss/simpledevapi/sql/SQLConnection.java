@@ -8,7 +8,7 @@ import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
 
-import fr.dornacraft.main.DornacraftFaction;
+import fr.voltariuss.simpledevapi.SimpleDevAPI;
 import fr.voltariuss.simpledevapi.UtilsAPI;
 
 /**
@@ -66,7 +66,7 @@ public final class SQLConnection {
 	public void connect(String host, String database, String user, String pwd) {
 		if (!isConnected()) {
 			Bukkit.getLogger().log(Level.INFO,
-					UtilsAPI.getPluginPrefix(DornacraftFaction.class) + UtilsAPI.SQL_CONNECTION_ATTEMPT);
+					UtilsAPI.getPluginPrefix(SimpleDevAPI.class) + UtilsAPI.SQL_CONNECTION_ATTEMPT);
 			setHost(host);
 			setDatabase(database);
 			setUser(user);
@@ -76,10 +76,10 @@ public final class SQLConnection {
 				setConnection(DriverManager.getConnection(SGBD_TYPE_ROOT + getHost() + "/" + getDatabase(), getUser(),
 						getPwd()));
 				Bukkit.getLogger().log(Level.INFO, "%s§eétat: §aconnecté",
-						UtilsAPI.getPluginPrefix(DornacraftFaction.class));
+						UtilsAPI.getPluginPrefix(SimpleDevAPI.class));
 			} catch (SQLException e) {
 				Bukkit.getLogger().log(Level.SEVERE,
-						UtilsAPI.getPluginPrefix(DornacraftFaction.class) + UtilsAPI.SQL_CONNECTION_FAILED, e);
+						UtilsAPI.getPluginPrefix(SimpleDevAPI.class) + UtilsAPI.SQL_CONNECTION_FAILED, e);
 			}
 		}
 	}
@@ -92,7 +92,7 @@ public final class SQLConnection {
 			try {
 				getConnection().close();
 				Bukkit.getLogger().log(Level.INFO, "%s§eétat: §cdéconnecté",
-						UtilsAPI.getPluginPrefix(DornacraftFaction.class));
+						UtilsAPI.getPluginPrefix(SimpleDevAPI.class));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
