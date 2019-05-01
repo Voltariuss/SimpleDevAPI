@@ -1,2 +1,3 @@
 ##Not retain Eclipse settings
 **/.settings
+/bin/
