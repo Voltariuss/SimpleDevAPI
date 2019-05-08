@@ -33,7 +33,7 @@ public class ItemHandling {
 	 */
 	public static void addItem(Player player, ItemStack... itemStacks) throws InventoryFullException {
 		addItem(player.getInventory(), itemStacks);
-		player.playSound(player.getLocation(), Sound.ITEM_PICKUP, 1, 1);
+		player.playSound(player.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1, 1);
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class ItemHandling {
 	 */
 	public static void removeItem(Player player, ItemStack... itemStacks) throws InventoryInsufficientItemException {
 		removeItem(player.getInventory(), itemStacks);
-		player.playSound(player.getLocation(), Sound.ITEM_PICKUP, 1, 1);
+		player.playSound(player.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1, 1);
 	}
 
 	/**
