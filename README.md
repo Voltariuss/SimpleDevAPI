@@ -1,2 +1,2 @@
 # SimpleDevAPI
-API used to simplify the development of some functionalities (commands, inventories, ...)
+API utilisée pour simplifier le développement de fonctionnalités (commandes, inventaires, ...)
