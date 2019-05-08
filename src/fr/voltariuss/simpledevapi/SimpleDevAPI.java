@@ -8,10 +8,10 @@ import fr.voltariuss.simpledevapi.inventories.InventoryInteractListener;
 import fr.voltariuss.simpledevapi.sql.SQLConnection;
 
 /**
- * Main class of the plugin
+ * Classe principale du plugin
  * 
  * @author Voltariuss
- * @version 1.0.0
+ * @version 1.5.0
  *
  */
 public class SimpleDevAPI extends JavaPlugin {

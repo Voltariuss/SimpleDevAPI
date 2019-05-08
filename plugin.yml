@@ -1,5 +1,5 @@
 name: SimpleDevAPI
-version: 1.0.0
+version: 1.5.0
 description: API used to simplify the development of some functionalities (commands, inventories, ...)
 author: Voltariuss
 main: fr.voltariuss.simpledevapi.SimpleDevAPI
