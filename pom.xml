@@ -11,8 +11,8 @@
 	<name>SimpleDevAPI</name>
 	<description>API used to simplify the development of some functionalities (commands, inventories, ...)</description>
 	
+	<!-- Dependencies -->
 	<dependencies>
-	    <!-- Spigot -->
 	    <dependency>
            <groupId>org.spigotmc</groupId>
            <artifactId>spigot</artifactId>
