@@ -14,6 +14,27 @@ import org.bukkit.entity.Player;
  *
  */
 public class NMSManager {
+	
+	public static final String NMS_VERSION = Bukkit.getServer().getClass().getPackage().getName().substring(23);
+	
+	/**
+	 * Invokes the getHandle() method on the player's CraftPlayer instance to
+	 * retrieve the EntityPlayer representation of the player as an Object to
+	 * avoid package version change issues
+	 * 
+	 * @param player
+	 *            the player to cast
+	 * @return the NMS EnityPlayer representation of the player
+	 */
+	public static Object getCraftPlayer(Player player) {
+		try {
+			return Class.forName("org.bukkit.craftbukkit." + NMS_VERSION + ".entity.CraftPlayer").getMethod("getHandle")
+					.invoke(player);
+		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
+				| SecurityException | ClassNotFoundException e) {
+			throw new Error(e);
+		}
+	}
 
 	/**
 	 * @param nmsClassString The name of the class to reflect
