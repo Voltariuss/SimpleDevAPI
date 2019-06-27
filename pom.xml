@@ -25,9 +25,11 @@
 			<name>Loïc Dubois-Termoz</name>
 			<email>loic.duboistermoz@outlook.fr</email>
 			<roles>
+				<role>project management</role>
 				<role>architect</role>
 				<role>developer</role>
 				<role>tester</role>
+				<role>support</role>
 			</roles>
 			<timezone>Europe/Paris</timezone>
 		</developer>
