@@ -7,4 +7,7 @@ package fr.voltariuss.simpledevapi.items;
  * @version 1.5.0
  *
  */
-public class InventoryFullException extends Exception {}
+public class InventoryFullException extends Exception {
+
+    private static final long serialVersionUID = 1568556269722007563L;
+}

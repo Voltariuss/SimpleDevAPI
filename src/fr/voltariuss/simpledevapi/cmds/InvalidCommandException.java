@@ -9,6 +9,7 @@ package fr.voltariuss.simpledevapi.cmds;
  */
 public class InvalidCommandException extends RuntimeException {
 
+	private static final long serialVersionUID = 1310802979739947966L;
 	private CommandNode node;
 
 	/**

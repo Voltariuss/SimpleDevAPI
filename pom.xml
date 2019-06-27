@@ -7,7 +7,7 @@
 	<!-- ===== Maven Informations ===== -->
 	<groupId>fr.voltariuss.simpledevapi</groupId>
 	<artifactId>simple-dev-api</artifactId>
-	<version>1.5.1-SNAPSHOT</version>
+	<version>1.5.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
 	<!-- ===== Global Informations ===== -->
@@ -39,8 +39,8 @@
 	<!-- Properties -->
 	<!-- =============================================================================== -->
 	<properties>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.12</maven.compiler.source>
+		<maven.compiler.target>1.12</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	

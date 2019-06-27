@@ -9,4 +9,6 @@ package fr.voltariuss.simpledevapi.items;
  *
  */
 public class InventoryInsufficientItemException extends Exception {
+
+    private static final long serialVersionUID = 2779708386948011643L;
 }
