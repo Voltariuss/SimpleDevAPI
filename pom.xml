@@ -70,6 +70,16 @@
 	<build>
 		<sourceDirectory>${project.basedir}/src/</sourceDirectory>
 		<directory>${project.basedir}/target</directory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.2</version>
+				<configuration>
+					<finalName>${project.name}-${project.version}</finalName>
+				</configuration>
+			</plugin>
+		</plugins>
 		<resources>
 			<resource>
 				<directory>${project.basedir}</directory>
