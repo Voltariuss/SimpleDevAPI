@@ -1,5 +1,5 @@
-name: SimpleDevAPI
-version: 1.5.1
-description: API used to simplify the development of some functionalities (commands, inventories, ...)
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
 author: Voltariuss
-main: fr.voltariuss.simpledevapi.SimpleDevAPI
+main: ${project.groupId}.${project.name}
