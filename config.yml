@@ -1,5 +1,8 @@
 ## Informations de connexion à la base de données
-host: localhost
-database: database
-user: user
-password: password 
+database:
+  # actually the value 'mysql' is only accepted
+  jdbc: mysql
+  host: localhost
+  database: database
+  user: 'user'
+  password: 'password'
