@@ -12,7 +12,7 @@ import fr.voltariuss.simpledevapi.UtilsAPI;
  * <br>
  * <b>Commande à ne pas créer : </b><i>/&lt;label&gt; help</i> (créée par
  * défaut)
- * 
+ *
  * @author Voltariuss
  * @version 1.5.0
  *
@@ -23,7 +23,7 @@ public class DornacraftCommand implements CommandExecutor {
 
 	/**
 	 * Constructeur
-	 * 
+	 *
 	 * @param cmdLabel
 	 *            Le label de la commande, non null
 	 */
@@ -38,16 +38,12 @@ public class DornacraftCommand implements CommandExecutor {
 		};
 		setCmdTreeExecutor(new CommandTreeExecutor(cmdLabel));
 		getCmdTreeExecutor().getRoot().setExecutor(dce);
-		getCmdTreeExecutor().addSubCommand(
-				new CommandNode(new CommandArgument("help", "?"), UtilsAPI.COMMAND_HELP_DESCRIPTION, dce, null),
-				new CommandNode(new CommandArgument(CommandArgumentType.NUMBER.getCustomArgType("page"), false),
-						UtilsAPI.COMMAND_HELP_DESCRIPTION, dce, null));
 	}
 
 	/**
 	 * Vérifie si le joueur possède la permission globale d'exécution de la
 	 * commande puis tente de l'exécuter en parcourant son arbre d'exécution.
-	 * 
+	 *
 	 * @param sender
 	 *            L'émetteur de la commande, non null
 	 * @param cmd
@@ -76,7 +72,7 @@ public class DornacraftCommand implements CommandExecutor {
 
 	/**
 	 * Définit l'arbre d'exécution de la commande.
-	 * 
+	 *
 	 * @param cmdTreeExecutor
 	 *            L'arbre d'exécution à associer à la commande, non null
 	 */
