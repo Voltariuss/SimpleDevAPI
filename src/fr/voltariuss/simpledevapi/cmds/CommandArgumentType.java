@@ -4,7 +4,7 @@ import org.bukkit.Bukkit;
 
 /**
  * Classe de gestion d'un type d'argument
- * 
+ *
  * @author Voltariuss
  * @version 1.5.0
  *
@@ -43,7 +43,7 @@ public class CommandArgumentType {
 	/**
 	 * Définit le type d'argument à un joueur connecté.
 	 */
-	public static final CommandArgumentType PLAYER = new CommandArgumentType("joueur", new CommandArgumentChecker() {
+	public static final CommandArgumentType ONLINE_PLAYER = new CommandArgumentType("joueur", new CommandArgumentChecker() {
 
 		@Override
 		public boolean check(String arg) {
@@ -56,7 +56,7 @@ public class CommandArgumentType {
 
 	/**
 	 * Constructeur
-	 * 
+	 *
 	 * @param label
 	 *            Le label de l'argument, non null
 	 * @param checker
@@ -70,7 +70,7 @@ public class CommandArgumentType {
 	/**
 	 * Créer et retourne le type d'argument avec un label différent (utile pour
 	 * modifier le label d'un attribut statique tel que STRING par exemple)
-	 * 
+	 *
 	 * @param label
 	 *            Le nouveau label de l'argument, non null
 	 * @return Le nouveau type d'argument, non null
@@ -93,7 +93,7 @@ public class CommandArgumentType {
 
 	/**
 	 * Définit le label de l'argument.
-	 * 
+	 *
 	 * @param label
 	 *            Le label de l'argument, non null
 	 */
@@ -110,7 +110,7 @@ public class CommandArgumentType {
 
 	/**
 	 * Définit le vérificateur de l'argument.
-	 * 
+	 *
 	 * @param checker
 	 *            Le vérificateur de l'argument, peut être null
 	 */
