@@ -157,10 +157,10 @@ fabric.properties
 # https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
 
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+# !.vscode/settings.json -- useless actually
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
 
 ### NetBeans
 # https://github.com/github/gitignore/blob/master/Global/NetBeans.gitignore
@@ -217,7 +217,7 @@ GitHub.sublime-settings
 ### Vim
 # https://github.com/github/gitignore/blob/master/Global/Vim.gitignore
 
-    
+
 # Swap
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
