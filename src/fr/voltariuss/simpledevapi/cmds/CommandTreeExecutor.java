@@ -16,13 +16,13 @@ import fr.voltariuss.simpledevapi.UtilsAPI;
  * Classe de gestion d'un arbre d'exécution de commande<br>
  * <br>
  * <b><i>Exemple d'arbre :</i></b>
- * 
+ *
  * <pre>
  * Commandes :
  * - test arg1
  * - test arg2 arg2.1
  * - test arg2 arg2.2 ...
- * 
+ *
  *         -- arg1
  *        /
  * test --            -- arg2.1
@@ -31,7 +31,7 @@ import fr.voltariuss.simpledevapi.UtilsAPI;
  *                   \
  *                    -- arg2.2 -- ...
  * </pre>
- * 
+ *
  * @author Voltariuss
  * @version 1.5.0
  *
@@ -42,7 +42,7 @@ public class CommandTreeExecutor {
 
 	/**
 	 * Constructeur
-	 * 
+	 *
 	 * @param cmdLabel
 	 *            Le label de la commande, non null
 	 */
@@ -56,7 +56,7 @@ public class CommandTreeExecutor {
 	 * parant d'un argument sur le noeud associé à l'argument précédent. Voici
 	 * le formalisme à créer pour chaque ajout de commande <b>à effectuer dans
 	 * le constructeur de la classe Cmd</b> :
-	 * 
+	 *
 	 * <pre>
 	 * <code>
 	 * getCmdTreeExecutor().addSubCommand(new CommandNode(new CommandArgument("help", "?"), DESC_HELP, new DornacraftCommandExecutor() {
@@ -67,7 +67,7 @@ public class CommandTreeExecutor {
 	 *             }
 	 *         }, null),
 	 *         new CommandNode(new CommandArgument(CommandArgumentType.NUMBER.getCustomArgType("page"), false), "Aide sur la commande", new DornacraftCommandExecutor() {
-	 * 
+	 *
 	 *             <span>@Override</span>
 	 *             public void execute(CommandSender sender, Command cmd, String label, String[] args) throws Exception {
 	 *                 getCmdTreeExecutor().getRoot().sendHelpMessage(sender, label, Integer.parseInt(args[1]));
@@ -76,36 +76,36 @@ public class CommandTreeExecutor {
 	 *     );
 	 * </code>
 	 * </pre>
-	 * 
+	 *
 	 * <b>Détails des instructions :</b>
 	 * <ul>
 	 * <li><i><b>getCmdTreeExecutor() : </b>Appel de l'arbre d'exécution associé
 	 * à l'instance héritante de DornacraftCommand.</i></li>
-	 * 
+	 *
 	 * <li><i><b>addSubCommand(...) : </b>Appel de la méthode permettant l'ajout
 	 * d'une nouvelle commande à l'arbre d'exécution.</i></li>
-	 * 
+	 *
 	 * <li><i><b>new CommandNode(...) : </b>Créer un nouveau noeud dans l'arbre
 	 * d'exécution. Chaque noeud correspond à un argument de la commande dans
 	 * l'ordre spécifique.</i></li>
-	 * 
+	 *
 	 * <li><i><b>new CommandArgument(...) : </b>Définit le label principal de
 	 * l'argument suivi éventuellement de ses aliases.</i></li>
-	 * 
+	 *
 	 * <li><i><b>new CommandArgument(...) avec CommandArgumentType : </b>Définit
 	 * un argument de saisie en spécifiant le type d'argument attendu et s'il
 	 * est obligatoire ou non</i></li>
-	 * 
+	 *
 	 * <li><i><b>new DornacraftCommandExecutor() : </b>Définit éventuellement
 	 * l'exécuteur associé au noeud (obligatoire pour le dernier noeud de la
 	 * commande sinon une exception sera levée)</i></li>
-	 * 
+	 *
 	 * <li><i><b>Permission spécifique à un noeud : </b>Il est possible de
 	 * spécifier un argument spécifique à un noeud (attention : pas de
 	 * propagation donc à le faire soit même si nécessaire).
 	 * {@link CommandNode#CommandNode(CommandArgument, String, DornacraftCommandExecutor, String)}</i></li>
 	 * </ul>
-	 * 
+	 *
 	 * @param cmds
 	 *            La liste des noueuds à ajouter dans l'arbre d'exécution de la
 	 *            commande, non null
@@ -159,7 +159,7 @@ public class CommandTreeExecutor {
 
 	/**
 	 * Récupère la commande associée et la retourne si elle existe.
-	 * 
+	 *
 	 * @param args
 	 *            La liste des arguments de la commande saisis par l'émetteur,
 	 *            non null
@@ -199,7 +199,7 @@ public class CommandTreeExecutor {
 	 * s'il ne s'agit pas d'une feuille de l'arbre d'exécution. Traite les
 	 * erreurs détectées lors des vérifications si il y en a, sinon lance
 	 * l'exécution de la commande.
-	 * 
+	 *
 	 * @param commandNode
 	 *            Le noeud correspondant à la commande à exécuter, non null
 	 * @param sender
@@ -265,7 +265,7 @@ public class CommandTreeExecutor {
 	 * de la commande en faisant appel à la méthode
 	 * {@link CommandTreeExecutor#executeCommand(CommandNode, CommandSender, Command, String, String[])}.
 	 * Capte et traite toutes les erreurs non traitées.
-	 * 
+	 *
 	 * @param sender
 	 *            L'émetteur de la commande, non null
 	 * @param cmd
@@ -291,7 +291,9 @@ public class CommandTreeExecutor {
 					try {
 						executeCommand(cmdNode, sender, cmd, label, args);
 					} catch (NumberFormatException e) {
-						UtilsAPI.sendSystemMessage(MessageLevel.ERROR, sender, UtilsAPI.NUMBER_FORMAT_INVALIDE);
+                        UtilsAPI.sendSystemMessage(MessageLevel.ERROR, sender, UtilsAPI.NUMBER_FORMAT_INVALIDE);
+                    } catch (InvalidArgumentsCommandException e) {
+                        UtilsAPI.sendSystemMessage(MessageLevel.ERROR, sender, UtilsAPI.COMMAND_INPUT_ARGUMENT_WRONG);
 					} catch (Exception e) {
 						UtilsAPI.sendSystemMessage(MessageLevel.ERROR, sender, UtilsAPI.INTERNAL_EXCEPTION);
 						e.printStackTrace();
@@ -318,7 +320,7 @@ public class CommandTreeExecutor {
 
 	/**
 	 * Définit le noeud racine de l'arbre d'exécution.
-	 * 
+	 *
 	 * @param root
 	 *            Le noeud racine de l'arbre d'exécution, non null
 	 */
