@@ -138,13 +138,6 @@ public class CommandTreeExecutor {
 			currentNode = cmdNode;
 		}
 
-		if (cmds[0].getArgument().isInputArg()) {
-			// S'il s'agit de l'ajout d'une sous-commande de saisie au noeud
-			// racine alors
-			// on supprime l'argument d'aide
-			getRoot().getChilds().remove(0);
-		}
-
 		// On parcourt désormais la liste des noeuds dans l'ordre inverse afin
 		// d'en
 		// vérifier la cohérence au niveau des arguments obligatoires et
