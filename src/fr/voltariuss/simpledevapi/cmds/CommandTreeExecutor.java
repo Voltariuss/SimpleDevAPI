@@ -217,28 +217,22 @@ public class CommandTreeExecutor {
 			// correspondant au noeud à exécuter
 			Iterator<String> iterator = Lists.reverse(Arrays.asList(args)).iterator();
 			CommandNode currentNode = commandNode;
-			boolean areCheckersValid = true;
 
 			// On parcourt les arguments en partant du noeud à exécuter en
 			// vérifiant la
 			// validité des données saisies dans les arguments de saisi
-			while (iterator.hasNext() && areCheckersValid) {
+			while (iterator.hasNext()) {
 				String arg = iterator.next();
 
 				// On traite seulement le cas où l'argument est une saisie
 				// utilisateur
 				if (currentNode.getArgument().isInputArg()) {
 					// On vérifie si la saisie est conforme
-					areCheckersValid = currentNode.getArgument().getType().getChecker().check(arg);
+					currentNode.getArgument().getType().getChecker().check(arg);
 				}
 				currentNode = currentNode.getParent();
 			}
-			if (areCheckersValid) {
-				commandNode.getExecutor().execute(sender, cmd, label, args);
-			} else {
-				UtilsAPI.sendSystemMessage(MessageLevel.ERROR, sender, UtilsAPI.COMMAND_INPUT_ARGUMENT_WRONG);
-				commandNode.sendSpecificHelpMessage(sender, label);
-			}
+			commandNode.getExecutor().execute(sender, cmd, label, args);
 		} else if (commandNode.getArgument().isInputArg()) {
 			// Si le noeud de la commande à exécuter correspond à un argument de
 			// saisi,

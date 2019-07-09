@@ -1,6 +1,9 @@
 package fr.voltariuss.simpledevapi.cmds;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+
+import fr.voltariuss.simpledevapi.UtilsAPI;
 
 /**
  * Classe de gestion d'un type d'argument
@@ -19,9 +22,7 @@ public class CommandArgumentType {
 	public static final CommandArgumentType STRING = new CommandArgumentType("saisie", new CommandArgumentChecker() {
 
 		@Override
-		public boolean check(String arg) {
-			return true;
-		}
+		public void check(String arg) {}
 	});
 
 	/**
@@ -30,13 +31,8 @@ public class CommandArgumentType {
 	public static final CommandArgumentType NUMBER = new CommandArgumentType("nombre", new CommandArgumentChecker() {
 
 		@Override
-		public boolean check(String arg) {
-			try {
-				Integer.parseInt(arg);
-			} catch (NumberFormatException e) {
-				return false;
-			}
-			return true;
+		public void check(String arg) {
+			Integer.parseInt(arg);
 		}
 	});
 
@@ -46,8 +42,12 @@ public class CommandArgumentType {
 	public static final CommandArgumentType ONLINE_PLAYER = new CommandArgumentType("joueur", new CommandArgumentChecker() {
 
 		@Override
-		public boolean check(String arg) {
-			return Bukkit.getPlayer(arg) != null;
+		public void check(String arg) throws DornacraftCommandException {
+            Player player = Bukkit.getPlayer(arg);
+
+            if (player == null) {
+                throw new DornacraftCommandException(UtilsAPI.PLAYER_NOT_FOUND);
+            }
 		}
 	});
 
