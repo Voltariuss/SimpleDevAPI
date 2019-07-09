@@ -294,6 +294,8 @@ public class CommandTreeExecutor {
                         UtilsAPI.sendSystemMessage(MessageLevel.ERROR, sender, UtilsAPI.NUMBER_FORMAT_INVALIDE);
                     } catch (InvalidArgumentsCommandException e) {
                         UtilsAPI.sendSystemMessage(MessageLevel.ERROR, sender, UtilsAPI.COMMAND_INPUT_ARGUMENT_WRONG);
+                    } catch (DornacraftCommandException e) {
+                        UtilsAPI.sendSystemMessage(MessageLevel.ERROR, sender, e.getMessage());
 					} catch (Exception e) {
 						UtilsAPI.sendSystemMessage(MessageLevel.ERROR, sender, UtilsAPI.INTERNAL_EXCEPTION);
 						e.printStackTrace();
