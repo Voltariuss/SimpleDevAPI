@@ -16,5 +16,5 @@ public interface CommandArgumentChecker {
 	 *            L'argument associé, non null
 	 * @return True si les données saisies sont valides, false sinon
 	 */
-	public void check(String arg) throws DornacraftCommandException;
+	public void check(String arg) throws Exception;
 }

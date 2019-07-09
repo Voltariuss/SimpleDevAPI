@@ -31,7 +31,7 @@ public class CommandArgumentType {
 	public static final CommandArgumentType NUMBER = new CommandArgumentType("nombre", new CommandArgumentChecker() {
 
 		@Override
-		public void check(String arg) {
+		public void check(String arg) throws NumberFormatException {
 			Integer.parseInt(arg);
 		}
 	});
