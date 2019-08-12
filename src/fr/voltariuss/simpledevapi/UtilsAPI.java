@@ -84,6 +84,7 @@ public class UtilsAPI {
 	// SQL
 	public static final String SQL_CONNECTION_ATTEMPT = "§eTentative de connexion à la base de données...";
 	public static final String SQL_CONNECTION_FAILED = "Connexion impossible à la base de données !";
+	public static final String SQL_NO_CONNECTION = "Le plugin n'est connecté à aucune base de données. Certaines fonctionnalités ont été bridées ou désactivées.";
 
 	// Commandes
 	public static final String COMMAND_HELP_HEADER = "§6===== [§aAide - Commande /%s§6] =====";
