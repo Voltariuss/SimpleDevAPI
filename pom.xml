@@ -7,7 +7,7 @@
 	<!-- ===== Maven Informations ===== -->
 	<groupId>fr.voltariuss.simpledevapi</groupId>
 	<artifactId>simple-dev-api</artifactId>
-	<version>1.6.7</version>
+	<version>1.6.8</version>
 	<packaging>jar</packaging>
 
 	<!-- ===== Global Informations ===== -->
